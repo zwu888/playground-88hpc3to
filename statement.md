@@ -1,19 +1,27 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
-
+# description: 
+ 3 times.  One time for the first virtual occurences of BS in the heirarchy and once for each non-virtual occurence of BS.  mid1 and mid2 together have one.  mid3 and mid4 each have one.
 ```C++ runnable
 #include <iostream>
 
-using namespace std;
-
-int main() 
+struct BS
 {
-    cout << "Hello, World!";
-    return 0;
+  BS()
+  {
+    std::cout << "Hello World" << std::endl;
+  }
+  unsigned int color;
+};
+
+struct mid1 : virtual public BS { };
+struct mid2 : virtual public BS { };
+struct mid3 : public BS { };
+struct mid4 : public BS { };
+
+struct DR : public mid1, public mid2, 
+            public mid3, public mid4 { };
+
+int main(int argc, char** argv) 
+{ 
+  DR d;
+  return 0; 
 }
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
